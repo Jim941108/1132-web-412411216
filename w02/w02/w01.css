@@ -1,0 +1,9 @@
+body {
+  background-color: rgb(15, 14, 14);
+  color: white;
+  font-family: 標楷體, Courier, monospace;
+  font-weight: 200; /*粗體*/
+}
+.content-title {
+  letter-spacing: 1rem;
+}
