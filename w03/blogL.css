@@ -12,7 +12,7 @@ body {
 }
 :root {
   --article-width: 400px;
-  --fluid-width: 400px;
+  --fluid-width: 1000px;
   --border-radius: 2rem;
   --primary: rgb(8, 8, 8);
   --letter-spacing: 10;
@@ -20,10 +20,18 @@ body {
 
   --grey-light: rgb(185, 174, 174);
   --grey-dark: rgb(150, 134, 134);
+  --max-widt: 500px;
 }
 .blogs-center {
   width: var(--fluid-width);
   max-width: var(--article-width);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  width: var(--fluid-width);
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -72,4 +80,10 @@ section-title {
   text-transform: capitalize;
   color: var(--primary-dark);
   letter-spacing: 1px;
+}
+.section-title {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 2rem;
+  letter-spacing: 2px;
 }
