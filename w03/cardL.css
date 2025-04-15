@@ -1,7 +1,16 @@
+/* 全局設置 */
 body {
   background: #f9fcff;
   font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: space-between; /* 使按鈕推到卡片底部 */
+  align-items: center; /* 垂直居中 */
+  flex-wrap: wrap; /* 當視窗縮小時，卡片會自動換行 */
+  margin: 0;
+  padding: 0;
 }
+
+/* 卡片樣式 */
 .card {
   background-color: #f9fcff;
   padding: 1.5rem 2rem;
@@ -10,6 +19,7 @@ body {
   margin: 3rem;
   border-radius: 0.5rem;
   border: 1px solid transparent;
+  flex-grow: 1;
 }
 
 .card-1 {
@@ -20,33 +30,79 @@ body {
   border-color: #1b3deb;
 }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin: 0 auto;
+.card-3 {
+  border-color: #17ed57;
 }
 
-.card-1 .icon {
-  background: #ff0000;
+.card-4 {
+  border-color: #f0f400;
 }
 
-.card-2 .icon {
-  background: #1708f0;
+/* 圖片樣式 */
+img {
+  height: 12rem;
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
+/* 圓形頭像 */
+img.avatar {
+  height: 50px; /* 設定圖片的小高度 */
+  width: 50px; /* 設定圖片的小寬度，保持寬高一致 */
+  object-fit: cover; /* 保證圖片不會變形，並保持比例 */
+  border-radius: 50%; /* 使圖片變為圓形 */
+  margin-right: 15px; /* 圖片與按鈕之間的間距 */
+}
+
+/* 頭像和按鈕容器 */
+.profile-row {
+  display: flex; /* 使用 flexbox 來排列元素 */
+  align-items: center; /* 垂直居中對齊 */
+  justify-content: flex-start; /* 頭像和按鈕從左邊開始排列 */
+  margin-top: 15px;
+}
+
+/* 按鈕樣式 */
 .btn {
   text-transform: capitalize;
   padding: 0.5rem 1rem;
   border: transparent;
   border-radius: 0.5rem;
   letter-spacing: 2px;
+  display: inline-flex; /* 使用 flexbox 來居中內容 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  transform: translateY(-50px); /* 向上移動 2px */
 }
+
 .btn-1 {
   background-color: #f1bfd2;
   color: #ee0420;
 }
 .btn-2 {
-  background-color: #f1bfd2;
-  color: #ee0420;
+  background-color: #739eef;
+  color: #2d00f8;
+}
+.btn-3 {
+  background-color: #0bf9b5;
+  color: #032a10;
+}
+.btn-4 {
+  background-color: #ffee00;
+  color: #7b7726;
+}
+
+/* 使按鈕在卡片底部 */
+.card-1 .btn {
+  margin-top: 10px;
+}
+.card-2 .btn {
+  margin-top: 10px;
+}
+.card-3 .btn {
+  margin-top: 10px;
+}
+.card-4 .btn {
+  margin-top: 10px;
 }
