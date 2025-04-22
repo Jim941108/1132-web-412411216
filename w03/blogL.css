@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -10,6 +11,7 @@ body {
   color: var(--grey-dark);
   font-size: 12px;
 }
+
 :root {
   --article-width: 400px;
   --fluid-width: 1000px;
@@ -20,19 +22,22 @@ body {
 
   --grey-light: rgb(185, 174, 174);
   --grey-dark: rgb(150, 134, 134);
-  --max-widt: 500px;
+  --max-width: 500px;
 }
-.blogs-center {
-  width: var(--fluid-width);
-  max-width: var(--article-width);
-  margin: 0 auto;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2rem;
+/* 栅格布局 */
+.blogs-center {
   width: var(--fluid-width);
   max-width: var(--max-width);
   margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 动态列宽 */
+  gap: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 默认 4 列 */
+  gap: 2rem;
 }
 
 img {
@@ -41,8 +46,12 @@ img {
   display: block;
   object-fit: cover;
 }
-section-title {
-  margin: 0 auto;
+
+.section-title {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 2rem;
+  letter-spacing: 2px;
 }
 
 .blog {
@@ -58,32 +67,58 @@ section-title {
   border-radius: var(--border-radius);
   margin-bottom: 0.5rem;
 }
+
 .blog-content {
   padding-bottom: 1rem;
 }
+
 .blog-content span {
   text-transform: uppercase;
   color: var(--primary);
   letter-spacing: var(--letter-spacing);
   font-weight: 500;
 }
+
 .blog-content h3 {
   text-transform: capitalize;
   letter-spacing: var(--letter-spacing);
   margin: 0.5rem 0;
 }
+
 .blog-content p {
-  color: var(--grey);
+  color: var(--grey-dark);
   margin-bottom: 0.5rem;
 }
+
 .blog-content a {
   text-transform: capitalize;
   color: var(--primary-dark);
   letter-spacing: 1px;
 }
-.section-title {
-  text-align: center;
-  text-transform: capitalize;
-  margin: 2rem;
-  letter-spacing: 2px;
+
+/* 媒体查询控制每列的博客数量 */
+@media screen and (max-width: 1200px) {
+  .blogs-center {
+    grid-template-columns: repeat(3, 1fr); /* 1200px 屏幕宽度时显示三列 */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .blogs-center {
+    grid-template-columns: repeat(2, 1fr); /* 900px 屏幕宽度时显示两列 */
+  }
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    top: -150px;
+    scale: 0.8;
+  }
+
+  .blogs-center {
+    grid-template-columns: 1fr; /* 小屏幕下每行只显示一列 */
+  }
 }
