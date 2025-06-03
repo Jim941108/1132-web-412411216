@@ -1,0 +1,63 @@
+/* 最小寬度限制 */
+body {
+  min-width: 550px;
+}
+
+/* 導覽列樣式 */
+.nav {
+  position: relative; /* 配合 .nav-link 的 absolute 定位 */
+  background-color: antiquewhite;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+/* 導覽圖片樣式 */
+.nav-img {
+  height: 100%;
+}
+
+.nav-img img {
+  height: 100%;
+}
+
+/* 導覽連結區域 */
+.nav-link {
+  position: absolute;
+  right: 5rem;
+  display: flex;
+  gap: 18px;
+  list-style-type: none;
+  align-items: center;
+  font-size: 24px;
+}
+
+/* 連結樣式 */
+.nav-link a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link a:hover {
+  color: rgb(255, 153, 0);
+}
+
+/* iframe 外層容器 */
+.show-classdemo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* iframe 樣式 */
+iframe {
+  width: 70%;
+  height: 600px;
+  resize: both;
+  overflow: auto;
+  border: 1px solid #ccc;
+}
+
+/*# sourceMappingURL=index.css.map */
