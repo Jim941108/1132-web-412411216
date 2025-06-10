@@ -1,37 +1,28 @@
-import logo from './logo.svg';
+import Menulist from './component/menu.js';
+import Category_xx from './component/category';
 import './App.css';
-
+import menu from './data.js';
+import React, { useState } from 'react';
 function App() {
+  const [newmenu, setMenu] = useState(menu);
+  const categoryFilter = (choose) => {
+    if (choose === 'all') {
+      setMenu(menu);
+    } else {
+      setMenu(menu.filter((value) => value.category === choose));
+    }
+  };
   return (
-    <section className='menu'>
-      {/* <!-- title --> */}
-      <div className='title'>
-        <h2>our menu</h2>
-        <div className='underline'></div>
-      </div>
-      {/* <!-- filter buttons --> */}
-      <div className='btn-container'>
-        <div class='btn-container'>
-          <button type='button' class='filter-btn' data-id='all'>
-            all
-          </button>
-          <button type='button' class='filter-btn' data-id='breakfast'>
-            breakfast
-          </button>
-          <button type='button' class='filter-btn' data-id='lunch'>
-            lunch
-          </button>
-          <button type='button' class='filter-btn' data-id='shakes'>
-            shakes
-          </button>
-          <button type='button' class='filter-btn' data-id='dinner'>
-            dinner
-          </button>
+    <div className='App'>
+      <section className='menu'>
+        <div className='title'>
+          <h2>Our menu</h2>
         </div>
-      </div>
-      {/* <!-- menu items --> */}
-      <div className='section-center'></div>
-    </section>
+        <div className='underline'></div>
+        <Category_xx categoryFilter={categoryFilter} />
+        <Menulist items={newmenu} />
+      </section>
+    </div>
   );
 }
 
